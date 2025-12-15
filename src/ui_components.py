@@ -540,6 +540,9 @@ class RaceProgressBarComponent(BaseComponent):
         progress = (x - self._bar_left) / self._bar_width
         return int(progress * self._total_frames)
         
+    def on_resize(self, window):
+        self._calculate_bar_dimensions(window)
+        
     def draw(self, window):
         """Render the progress bar with all markers"""
         self._calculate_bar_dimensions(window)
